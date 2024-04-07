@@ -1,19 +1,16 @@
-import logo from "./logo.svg";
-import "./App.css";
+import { Top } from "./features/top";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { GomokuEx } from "./features/games/gomokuEx";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn Reactaa
-        </a>
-      </header>
-    </div>
+    <BrowserRouter basename="/quick-games">
+      <Routes>
+        <Route path="/" element={<Top />} />
+        {/* ここにパスを追加していく */}
+        <Route path="/gomokuEx" element={<GomokuEx />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
